@@ -1,0 +1,131 @@
+openapi: "3.0.0"
+info:
+  title: API de Gestión de Clientes
+  description: API para gestionar la información de clientes en el banco XYZ.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8085
+    description: Servidor local para el microservicio ms_customers
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bank
+    username: root
+    password: NjMySql0.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+paths:
+  /customer:
+    post:
+      summary: Crear un cliente nuevo
+      requestBody:
+        description: Información necesaria para registrar un cliente
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          description: Cliente creado exitosamente
+        '400':
+          description: Solicitud inválida
+
+    get:
+      summary: Listar todos los clientes
+      responses:
+        '200':
+          description: Lista de clientes registrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+
+  /customer/{id}:
+    get:
+      summary: Obtener un cliente por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cliente encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          description: Cliente no encontrado
+
+    put:
+      summary: Actualizar información de un cliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Información actualizada del cliente
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Cliente actualizado exitosamente
+        '404':
+          description: Cliente no encontrado
+
+    delete:
+      summary: Eliminar un cliente por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cliente eliminado exitosamente
+        '400':
+          description: No se puede eliminar el cliente porque tiene cuentas activas
+        '404':
+          description: Cliente no encontrado
+
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nombre:
+          type: string
+          example: Juan
+        apellido:
+          type: string
+          example: Pérez
+        dni:
+          type: string
+          example: 12345678
+        email:
+          type: string
+          format: email
+          example: juan.perez@ejemplo.com
+      required:
+        - nombre
+        - apellido
+        - dni
+        - email
