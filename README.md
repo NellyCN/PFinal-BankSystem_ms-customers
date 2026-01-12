@@ -76,9 +76,11 @@ graph TD
    end
    Repository -->|SQL| DB[(MySQL Database)]
    
-   style Controller fill:#f9f,stroke:#333,stroke-width:2px
-   style ServiceImpl fill:#bbf,stroke:#333,stroke-width:2px
-   style DB fill:#dfd,stroke:#333,stroke-width:2px
+    style Controller fill:#c0ebff,stroke:#007bff,stroke-width:2px,color:#000
+    style ServiceImpl fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000
+    style DB fill:#fff3cd,stroke:#ffc107,stroke-width:2px,color:#000
+    style Service fill:#f8f9fa,stroke:#343a40,stroke-width:2px,color:#000
+    style Repository fill:#f8f9fa,stroke:#343a40,stroke-width:2px,color:#000
 ```
 
 ## 📸 API Demo
