@@ -3,12 +3,16 @@ package com.xyzbank.ms_customer.controller;
 import com.xyzbank.ms_customer.model.Customer;
 import com.xyzbank.ms_customer.service.CustomerService;
 
-import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Operation; // Para @Operation
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.http.HttpStatus;      // Para HttpStatus
+import org.springframework.web.bind.annotation.*; // Para @PostMapping, @DeleteMapping, @RequestBody, @PathVariable, @ResponseStatus
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +33,7 @@ public class CustomerController {
      * Inyección de dependencia mediante constructor (gracias a @RequiredArgsConstructor de Lombok).
      * Se declara como 'final' para garantizar la inmutabilidad y una inyección segura.
      */
+    @Autowired
     private final CustomerService customerService;
 
     /**
@@ -43,5 +48,26 @@ public class CustomerController {
     public List<Customer> getAllCustomers() {
         // Delega la lógica de negocio a la capa de servicio
         return customerService.getAllCustomers();   // Llama al servicio para obtener todos los clientes
+    }
+
+    @Operation(
+            summary = "Crear un nuevo cliente",
+            description = "Recibe los datos del cliente y los persiste en la base de datos MySQL."
+    )
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED) // Devuelve un código 201 al crear exitosamente
+    public Customer createCustomer(@RequestBody Customer customer) {
+        return customerService.saveCustomer(customer);
+    }
+
+    @Operation(
+            summary = "Eliminar cliente",
+            description = "Elimina de forma permanente un registro de la base de datos mediante su ID."
+    )
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT) // Devuelve un código 204 (sin contenido) al borrar
+    public void deleteCustomer(@PathVariable Long id) { // El @PathVariable vincula el {id} de la URL con la variable
+
+        customerService.deleteCustomer(id);
     }
 }

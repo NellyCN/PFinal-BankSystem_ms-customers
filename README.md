@@ -88,15 +88,30 @@ graph TD
 -----
 ## 🖥️ Interfaz de Documentación (Swagger)
 
-El proyecto utiliza **SpringDoc OpenAPI** para generar documentación interactiva. Una vez ejecutado, puedes acceder en: `http://localhost:8088/swagger-ui/index.html`
+El proyecto utiliza **SpringDoc OpenAPI** para generar documentación interactiva. 
+Una vez ejecutado, puedes acceder en: `http://localhost:8088/swagger-ui/index.html`
 
-### Ejemplo de respuesta (GET /customer):
-Consulta de Clientes:![Response_customerList.png](assets%2FResponse_customerList.png)
+![Swagger Overview](assets/swagger-overview.png)
+
+### 🚀 Demostración de Endpoints
+
+---
+#### 1. Consulta de Clientes (GET)
+Permite obtener la lista completa de clientes desde la base de datos MySQL.
+![Listar Clientes](assets/api-get-customers.png)
+
+#### 2. Registro de Nuevo Cliente (POST)
+Envío de datos en formato JSON. Al procesar la solicitud, el sistema devuelve un estado `201 Created` y el objeto con su ID generado.
+![Crear Cliente](assets/api-post-response.png)
+
+#### 3. Eliminación de Clientes (DELETE)
+Eliminación física del registro mediante su identificador único, retornando un estado `204 No Content`.
+![Borrar Cliente](assets/api-delete-success.png)
 *Muestra la integración exitosa entre el controlador REST y la persistencia en MySQL.*
 
-### 📄 Ejemplo de Respuesta JSON
+### 📄 Estructura de Datos (JSON)
 <details>
-  <summary>Haz clic aquí para ver el JSON completo obtenido de la API</summary>
+  <summary>Ver ejemplo de respuesta extendida</summary>
 
   ```json
   [
@@ -115,11 +130,11 @@ Consulta de Clientes:![Response_customerList.png](assets%2FResponse_customerList
       "email": "cfrias@gmail.com"
    },
    {
-      "id": 3,
-      "firstName": "José",
-      "lastName": "Gomes",
-      "dni": "06044040",
-      "email": "jgomes@gmail.com"
+      "id": 8,
+      "firstName": "Luisa",
+      "lastName": "Pimentel",
+      "dni": "65565455",
+      "email": "lupimentel@gmail.com"
    },
     ...
   ]

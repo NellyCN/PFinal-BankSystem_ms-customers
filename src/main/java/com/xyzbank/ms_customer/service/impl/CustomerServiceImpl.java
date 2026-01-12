@@ -23,4 +23,13 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAll();  // Obtiene todos los clientes de la base de datos
     }
 
+    @Override
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    @Override
+    public void deleteCustomer(Long id) {
+        customerRepository.deleteById(id);
+    }
 }
