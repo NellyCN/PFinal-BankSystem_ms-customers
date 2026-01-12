@@ -1,11 +1,12 @@
 # 🛡️ Microservicio de Gestión de Clientes (ms-customer)
 
-![Coverage](https://img.shields.io/badge/coverage-88%25-brightgreen)
-![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java)
-![Spring](https://img.shields.io/badge/Spring_Boot-3.3.6-green?style=for-the-badge&logo=spring)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![Junit5](https://img.shields.io/badge/Junit-5-red?style=for-the-badge&logo=junit5)
-
+<p align="center">
+  <img src="https://img.shields.io/badge/coverage-92%25-brightgreen" alt="Coverage">
+  <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java" alt="Java">
+  <img src="https://img.shields.io/badge/Spring_Boot-3.3.6-green?style=for-the-badge&logo=spring" alt="Spring Boot">
+  <img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained">
+</p>
 Este microservicio forma parte del ecosistema **Bank System** y es el encargado de administrar la información de los clientes (Personales y Empresariales), asegurando la integridad de los datos y proporcionando la base para la apertura de productos bancarios.
 
 ## 🚀 Tecnologías y Herramientas
@@ -17,52 +18,6 @@ Este microservicio forma parte del ecosistema **Bank System** y es el encargado 
 * **Lombok**: Reducción de código boilerplate.
 * **SpringDoc OpenAPI**: Documentación interactiva de la API basada en el estándar OpenAPI 3.
 * **Jakarta Persistence API**: Estándar de mapeo objeto-relacional.
-
----
-
-## 🛠️ Calidad de Código y Pruebas
-
-Este proyecto pone un fuerte énfasis en la **estabilidad y mantenibilidad**, implementando:
-
-### 1. Pruebas Unitarias y Mocking
-* Uso de **JUnit 5** y **Mockito** para asegurar el correcto funcionamiento de la lógica de negocio de forma aislada.
-
-### 2. Cobertura de Código (JaCoCo)
-El proyecto incluye el plugin de **JaCoCo** con una regla de calidad estricta:
-* **Umbral mínimo de cobertura:** 80% de las instrucciones.
-* Generación automática de reportes de cobertura tras la fase de test.
-
-### 3. Estilo de Código (Checkstyle)
-* Se aplica el plugin de **Checkstyle** para garantizar que el código siga los estándares definidos en `checkstyle.xml`, promoviendo un código limpio y legible para el equipo.
-
----
-
-## 📋 Funcionalidades del Sistema
-
-* **Registro de Clientes**: Gestión de clientes con validaciones de campos obligatorios.
-* **Tipificación**: Diferenciación lógica entre clientes Personales y Empresariales.
-* **Validación de Identidad**: Integridad de datos para campos únicos (DNI/RUC).
-* **API Documentation**: Documentación de endpoints accesible vía Swagger.
-
----
-
-## ⚙️ Ejecución en Local
-
-### Requisitos
-* JDK 17
-* Maven 3.6+
-* MySQL Server
-
-### Pasos
-1. Clonar el repositorio.
-2. Configurar la base de datos en el archivo `src/main/resources/application.properties`.
-3. Ejecutar los tests y verificar cobertura:
-    ```bash
-   mvn clean test
-   
-4. Levantar el servicio:
-   ```bash
-   mvn spring-boot:run   
 ---
 ## 🏗️ Diagrama de Arquitectura (Patrón de Capas)
 
@@ -82,20 +37,46 @@ graph TD
     style Service fill:#f8f9fa,stroke:#343a40,stroke-width:2px,color:#000
     style Repository fill:#f8f9fa,stroke:#343a40,stroke-width:2px,color:#000
 ```
------
+---
+## 📋 Funcionalidades del Sistema
+
+* **Registro de Clientes**: Gestión de clientes con validaciones de campos obligatorios.
+* **Tipificación**: Diferenciación lógica entre clientes Personales y Empresariales.
+* **Validación de Identidad**: Integridad de datos para campos únicos (DNI/RUC).
+* **API Documentation**: Documentación de endpoints accesible vía Swagger.
+---
+## ⚙️ Ejecución en Local
+
+### Requisitos
+* JDK 17
+* Maven 3.6+
+* MySQL Server
+
+### Pasos
+1. Clonar el repositorio.
+2. Configurar la base de datos en el archivo `src/main/resources/application.properties`.
+3. Ejecutar los tests y verificar cobertura:
+    ```bash
+   mvn clean test
+   
+4. Levantar el servicio:
+   ```bash
+   mvn spring-boot:run   
+---
 ## 📸 API Demo
 
 -----
-## 🖥️ Interfaz de Documentación (Swagger)
+### 🖥️ Interfaz de Documentación (Swagger)
 
-El proyecto utiliza **SpringDoc OpenAPI** para generar documentación interactiva. 
-Una vez ejecutado, puedes acceder en: `http://localhost:8088/swagger-ui/index.html`
+El proyecto utiliza **SpringDoc OpenAPI 3** para generar documentación interactiva y estandarizada. Una vez ejecutado el microservicio, puedes acceder a la consola de pruebas en:
+
+* 🔗 **Swagger UI:** [http://localhost:8088/swagger-ui/index.html](http://localhost:8088/swagger-ui/index.html)
 
 ![Swagger Overview](assets/swagger-overview.png)
 
-### 🚀 Demostración de Endpoints
+### 🚀 Demostración de Endpoints (API Demo)
+A continuación, se muestran capturas de las operaciones principales realizadas desde la interfaz:
 
----
 #### 1. Consulta de Clientes (GET)
 Permite obtener la lista completa de clientes desde la base de datos MySQL.
 ![Listar Clientes](assets/api-get-customers.png)
@@ -141,18 +122,32 @@ Eliminación física del registro mediante su identificador único, retornando u
   ```
 </details>
 
+---
+## 📈 Calidad del Proyecto y Cobertura
+
+Para garantizar la robustez del sistema bancario, este proyecto implementa un pipeline de calidad estricto basado en tres pilares:
+
+### 1. Pruebas Unitarias y Mocking
+* **JUnit 5** y **Mockito**: Se asegura el correcto funcionamiento de la lógica de negocio (capas de Controller y Service) de forma aislada mediante el uso de objetos simulados.
+
+### 2. Análisis de Cobertura (JaCoCo)
+* **Umbral mínimo:** Se ha configurado una regla de calidad con un mínimo del 80%.
+* **Resultado Actual:** **92% de cobertura de instrucciones**.
+* **Reporte Visual:**
+  ![Reporte de Cobertura](assets/jacoco-report-92.png)
+
+### 3. Estilo y Estándares (Checkstyle)
+* Se utiliza el plugin de **Checkstyle** con la configuración `checkstyle.xml` para garantizar que el código sea limpio, legible y siga las convenciones de la industria.
 -----
-## 📈 Calidad del Proyecto (Code Coverage)
+## 📬 Contacto y Autoría
 
-Para garantizar la robustez del sistema bancario, hemos implementado pruebas unitarias e integración con **JUnit 5** y **Mockito**.
+Este proyecto fue desarrollado por **NellyCN** como parte de la certificación en arquitectura de microservicios.
 
-- **Cobertura Total:** 88%
-- **Herramienta:** JaCoCo
+* **GitHub:** [@NellyCN](https://github.com/NellyCN)
+* **Proyecto:** Sistema Bancario XYZ - Fase 1: Microservicio de Clientes.
+* **Estado:** 🚀 Completado y Testeado.
 
-Reporte de Cobertura:![jacocoReport.png](assets%2FjacocoReport.png)
-
------
-
-## 📬 Contacto
-* Desarrollado por [NellyCN](https://github.com/NellyCN) 
-* Proyecto: Final Bank System - Fase Microservicios - ms-customer
+---
+<p align="center">
+  Hecho con ❤️ para el ecosistema Bank System
+</p>
