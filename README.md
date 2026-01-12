@@ -82,8 +82,9 @@ graph TD
     style Service fill:#f8f9fa,stroke:#343a40,stroke-width:2px,color:#000
     style Repository fill:#f8f9fa,stroke:#343a40,stroke-width:2px,color:#000
 ```
-
+-----
 ## 📸 API Demo
+
 -----
 ## 🖥️ Interfaz de Documentación (Swagger)
 
