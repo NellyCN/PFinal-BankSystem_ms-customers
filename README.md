@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained">
 </p>
 Este microservicio forma parte del ecosistema **Bank System** y es el encargado de administrar la información de los clientes (Personales y Empresariales), asegurando la integridad de los datos y proporcionando la base para la apertura de productos bancarios.
-
+---
 ## 🚀 Tecnologías y Herramientas
 
 * **Java 17**: Lenguaje principal.
@@ -16,7 +16,7 @@ Este microservicio forma parte del ecosistema **Bank System** y es el encargado 
 * **Spring Data JPA**: Abstracción de persistencia de datos.
 * **MySQL**: Base de datos relacional para gestión de perfiles.
 * **Lombok**: Reducción de código boilerplate.
-* **SpringDoc OpenAPI**: Documentación interactiva de la API basada en el estándar OpenAPI 3.
+* **SpringDoc OpenAPI 3**: Documentación interactiva de la API basada en el estándar OpenAPI 3.
 * **Jakarta Persistence API**: Estándar de mapeo objeto-relacional.
 ---
 ## 🏗️ Diagrama de Arquitectura (Patrón de Capas)
@@ -65,7 +65,7 @@ graph TD
 ---
 ## 📸 API Demo
 
------
+---
 ### 🖥️ Interfaz de Documentación (Swagger)
 
 El proyecto utiliza **SpringDoc OpenAPI 3** para generar documentación interactiva y estandarizada. Una vez ejecutado el microservicio, puedes acceder a la consola de pruebas en:
