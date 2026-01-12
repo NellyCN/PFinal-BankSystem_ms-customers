@@ -63,6 +63,35 @@ El proyecto incluye el plugin de **JaCoCo** con una regla de calidad estricta:
    ```bash
    mvn spring-boot:run   
 
+## 📸 API Demo
+-----
+## 🖥️ Interfaz de Documentación (Swagger)
+
+El proyecto utiliza **SpringDoc OpenAPI** para generar documentación interactiva. Una vez ejecutado, puedes acceder en: `http://localhost:8088/swagger-ui/index.html`
+
+### Ejemplo de respuesta (GET /customer):
+![Consulta de Clientes](![Response_customerList.png](assets%2FResponse_customerList.png)
+*Muestra la integración exitosa entre el controlador REST y la persistencia en MySQL.*
+
+### 📄 Ejemplo de Respuesta JSON
+<details>
+  <summary>Haz clic aquí para ver el JSON completo obtenido de la API</summary>
+
+  ```json
+  [
+    {
+      "id": 1,
+      "firstName": "Pedro",
+      "lastName": "Perez",
+      "dni": "10203050",
+      "email": "pedro@gmail.com"
+    },
+    ...
+  ]
+  ```
+</details>
+
+-----
 ## 📬 Contacto
 * Desarrollado por [NellyCN](https://github.com/NellyCN) 
 * Proyecto: Final Bank System - Fase Microservicios - ms-customer

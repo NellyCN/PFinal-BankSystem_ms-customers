@@ -9,30 +9,39 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * Entidad que representa la tabla de clientes en la base de datos.
+ * @Entity: Mapea esta clase a una tabla relacional (por defecto "customer").
+ * @Getter/@Setter: Genera automáticamente los métodos de acceso vía Lombok.
+ * @Builder: Permite crear instancias usando el patrón de diseño Builder.
+ */
 @Getter
 @Setter
-@Entity
+@Entity     // Marca esta clase como una entidad persistente que estará asociada a una tabla en BD relacional
 @Builder
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // ID autoincrementable
-    private Long id;
+    private Long id;    // Identificador único autoincrementable
 
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String dni;
     private String email;
 
-    // Constructor por defecto
+    /**
+     * Constructor por defecto requerido por JPA.
+     */
     public Customer() {
     }
 
-    // Constructor
-    public Customer(Long id, String first_name, String last_name, String dni, String email)
-    {
+    /**
+     * Constructor completo para inicialización manual o uso con el Builder.
+     */
+    public Customer(Long id, String firstName, String lastName, String dni, String email) {
         this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.dni = dni;
         this.email = email;
     }

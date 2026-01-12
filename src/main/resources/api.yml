@@ -1,23 +1,11 @@
 openapi: "3.0.0"
 info:
-  title: API de Gestión de Clientes
+  title: Bank Customers API
   description: API para gestionar la información de clientes en el banco XYZ.
   version: 1.0.0
 servers:
-  - url: http://localhost:8085
+  - url: http://localhost:8088
     description: Servidor local para el microservicio ms_customers
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/bank
-    username: root
-    password: NjMySql0.
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate.format_sql: true
 paths:
   /customer:
     post:

@@ -10,7 +10,6 @@
     <module name="TreeWalker">
         <module name="JavadocType"/>
         <module name="JavadocMethod"/>
-<!--        <module name="JavadocVariable"/>-->
         <module name="JavadocStyle"/>
         <module name="JavadocTagContinuationIndentation"/>
 
@@ -39,9 +38,6 @@
         <!-- Reglas para el formato de las llaves -->
         <module name="OneStatementPerLine"/>
     </module>
-
-    <!-- Módulo JavadocPackage fuera del TreeWalker -->
-<!--    <module name="JavadocPackage"/>-->
 
     <!-- Longitud de línea máxima -->
     <module name="LineLength">
