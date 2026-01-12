@@ -70,7 +70,7 @@ El proyecto incluye el plugin de **JaCoCo** con una regla de calidad estricta:
 El proyecto utiliza **SpringDoc OpenAPI** para generar documentación interactiva. Una vez ejecutado, puedes acceder en: `http://localhost:8088/swagger-ui/index.html`
 
 ### Ejemplo de respuesta (GET /customer):
-![Consulta de Clientes](![Response_customerList.png](assets%2FResponse_customerList.png)
+Consulta de Clientes:![Response_customerList.png](assets%2FResponse_customerList.png)
 *Muestra la integración exitosa entre el controlador REST y la persistencia en MySQL.*
 
 ### 📄 Ejemplo de Respuesta JSON
@@ -92,6 +92,17 @@ El proyecto utiliza **SpringDoc OpenAPI** para generar documentación interactiv
 </details>
 
 -----
+## 📈 Calidad del Proyecto (Code Coverage)
+
+Para garantizar la robustez del sistema bancario, hemos implementado pruebas unitarias e integración con **JUnit 5** y **Mockito**.
+
+- **Cobertura Total:** 88%
+- **Herramienta:** JaCoCo
+
+Reporte de Cobertura:![jacocoReport.png](assets%2FjacocoReport.png)
+
+-----
+
 ## 📬 Contacto
 * Desarrollado por [NellyCN](https://github.com/NellyCN) 
 * Proyecto: Final Bank System - Fase Microservicios - ms-customer
