@@ -1,5 +1,6 @@
 # 🛡️ Microservicio de Gestión de Clientes (ms-customer)
 
+![Coverage](https://img.shields.io/badge/coverage-88%25-brightgreen)
 ![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java)
 ![Spring](https://img.shields.io/badge/Spring_Boot-3.3.6-green?style=for-the-badge&logo=spring)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
@@ -14,7 +15,7 @@ Este microservicio forma parte del ecosistema **Bank System** y es el encargado 
 * **Spring Data JPA**: Abstracción de persistencia de datos.
 * **MySQL**: Base de datos relacional para gestión de perfiles.
 * **Lombok**: Reducción de código boilerplate.
-* **Swagger/Springfox**: Documentación interactiva de la API.
+* **SpringDoc OpenAPI**: Documentación interactiva de la API basada en el estándar OpenAPI 3.
 * **Jakarta Persistence API**: Estándar de mapeo objeto-relacional.
 
 ---
@@ -62,6 +63,23 @@ El proyecto incluye el plugin de **JaCoCo** con una regla de calidad estricta:
 4. Levantar el servicio:
    ```bash
    mvn spring-boot:run   
+---
+## 🏗️ Diagrama de Arquitectura (Patrón de Capas)
+
+```mermaid
+graph TD
+   User((Usuario / Swagger)) -->|HTTP Request| Controller[Customer Controller]
+   subgraph "Microservice: ms-customer"
+      Controller -->|DTO/Entity| Service[Customer Service Interface]
+      Service -->|Implementation| ServiceImpl[Customer Service Impl]
+      ServiceImpl -->|JPA Methods| Repository[Customer Repository]
+   end
+   Repository -->|SQL| DB[(MySQL Database)]
+   
+   style Controller fill:#f9f,stroke:#333,stroke-width:2px
+   style ServiceImpl fill:#bbf,stroke:#333,stroke-width:2px
+   style DB fill:#dfd,stroke:#333,stroke-width:2px
+```
 
 ## 📸 API Demo
 -----
@@ -79,13 +97,27 @@ Consulta de Clientes:![Response_customerList.png](assets%2FResponse_customerList
 
   ```json
   [
-    {
+   {
       "id": 1,
       "firstName": "Pedro",
       "lastName": "Perez",
       "dni": "10203050",
       "email": "pedro@gmail.com"
-    },
+   },
+   {
+      "id": 2,
+      "firstName": "Carlos",
+      "lastName": "Frias",
+      "dni": "10208888",
+      "email": "cfrias@gmail.com"
+   },
+   {
+      "id": 3,
+      "firstName": "José",
+      "lastName": "Gomes",
+      "dni": "06044040",
+      "email": "jgomes@gmail.com"
+   },
     ...
   ]
   ```
